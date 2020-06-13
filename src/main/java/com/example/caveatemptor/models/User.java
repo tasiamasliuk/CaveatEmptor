@@ -6,30 +6,30 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 @Entity
-public class Users {
+public class User {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long idUsers;
-    private String userName;
+    private Long idUser;
+    private String nameUser;
     private String firstName;
     private String lastName;
 
-    protected Users(){}
+    protected User(){}
 
-    public Users(String userName, String firstName, String lastName) {
-        this.userName = userName;
+    public User(String nameUser, String firstName, String lastName) {
+        this.nameUser = nameUser;
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
 
-    public String getUserName() {
-        return userName;
+    public String getNameUser() {
+        return nameUser;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setNameUser(String nameUser) {
+        this.nameUser = nameUser;
     }
 
     public String getFirstName() {

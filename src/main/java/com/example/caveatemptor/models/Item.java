@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-public class Items {
+public class Item {
 
     @ManyToOne
     @JoinColumn(name = "idCategory", nullable = false)
@@ -13,25 +13,25 @@ public class Items {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idItems;
-    private String name;
+    private Long idItem;
+    private String nameItem;
     private BigDecimal initialPrice;
     private Date auctionEnd;
 
-    protected Items(){}
+    protected Item(){}
 
-    public Items(String name, BigDecimal initialPrice, Date auctionEnd) {
-        this.name = name;
+    public Item(String name, BigDecimal initialPrice, Date auctionEnd) {
+        this.nameItem = name;
         this.initialPrice = initialPrice;
         this.auctionEnd = auctionEnd;
     }
 
-    public String getName() {
-        return name;
+    public String getNameItem() {
+        return nameItem;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameItem(String nameItem) {
+        this.nameItem = nameItem;
     }
 
     public BigDecimal getInitialPrice() {
