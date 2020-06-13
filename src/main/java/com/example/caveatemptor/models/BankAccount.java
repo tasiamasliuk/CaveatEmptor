@@ -6,10 +6,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class BankAccount {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idBankAccount;
+public class BankAccount extends BillingDetails{
+
+    private static final long serialVersionUID = 1L;
+
+    //@Id
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    //private Long idBankAccount;
     private String account;
     private String bankName;
     private String swift;

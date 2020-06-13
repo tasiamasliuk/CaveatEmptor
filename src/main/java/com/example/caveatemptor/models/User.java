@@ -1,9 +1,7 @@
 package com.example.caveatemptor.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class User {
@@ -14,6 +12,13 @@ public class User {
     private String nameUser;
     private String firstName;
     private String lastName;
+
+
+    @OneToMany(mappedBy = "owner")
+    private Set<BankAccount> bankAccountSet;
+    @OneToMany(mappedBy = "owner")
+    private Set<CreditCard> creditCardSet;
+
 
     protected User(){}
 

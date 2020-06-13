@@ -6,10 +6,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class CreditCard {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idCreditCard;
+public class CreditCard extends BillingDetails{
+
+    private static final long serialVersionUID = 1L;
+
+    //@Id
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    //private Long idCreditCard;
     private String number;
     private String expMonth;
     private String expYear;

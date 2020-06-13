@@ -1,11 +1,12 @@
 package com.example.caveatemptor.models;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-public class Item {
+public class Item implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "idCategory", nullable = false)

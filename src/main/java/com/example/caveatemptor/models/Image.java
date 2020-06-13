@@ -15,6 +15,7 @@ public class Image {
 
     protected Image(){}
 
+
     public Image(String title, String filename) {
         this.title = title;
         this.filename = filename;
