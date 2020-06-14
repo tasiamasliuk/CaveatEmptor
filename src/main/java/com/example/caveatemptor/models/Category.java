@@ -5,14 +5,19 @@ import java.util.Set;
 
 @Entity
 public class Category {
-
-    @OneToMany(mappedBy = "category")
-    private Set<Item> itemSet;
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idCategory;
     private String name;
+
+    //connection between table Item - Category
+    @OneToMany(mappedBy = "category")
+    private Set<Item> itemSet;
+
+    //TODO connection Category - Category
+    @ManyToOne
+    @JoinColumn(name="parentid")
+    private Category parent;
 
     protected Category(){}
 

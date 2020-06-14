@@ -1,9 +1,6 @@
 package com.example.caveatemptor.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Image {
@@ -12,6 +9,11 @@ public class Image {
     private Long idImage;
     private String title;
     private String filename;
+
+    //TODO connection Image-Item
+    @ManyToOne
+    @JoinColumn(name = "idItem", nullable = false)
+    private Item item;
 
     protected Image(){}
 

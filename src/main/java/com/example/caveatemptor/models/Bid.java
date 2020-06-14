@@ -1,9 +1,6 @@
 package com.example.caveatemptor.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -14,6 +11,16 @@ public class Bid {
     private long idBid;
     private BigDecimal amount;
     private Date createdOn;
+
+    //TODO connection Item-Bid
+    @ManyToOne
+    @JoinColumn(name="idItem", nullable = false)
+    private Item item;
+
+    //TODO connection User-Bid
+    @ManyToOne
+    @JoinColumn(name="idBidder", nullable = false)
+    private User bidder;
 
     protected Bid(){}
 
