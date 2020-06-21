@@ -13,6 +13,9 @@ import java.util.Set;
 */
 
 @Entity
+
+/*@NamedQuery(name = "User.findByUserName",
+        query = "select u from user u where u.name_user = ?1")*/
 public class User {
 
     @Id
@@ -22,13 +25,18 @@ public class User {
     private String firstName;
     private String lastName;
 
-    //TODO connection Item - User
+    //User - A user can be a seller or a buyer.
+    public enum UserType{ SELLER, BUYER, ADMIN}
+    @Enumerated(EnumType.STRING)
+    private UserType userType;
+
+    //connection Item - User
     @OneToMany(mappedBy="seller")
     private Set<Item> sellingItemsSet;
-    //TODO connection Bid - User
+    //connection Bid - User
     @OneToMany(mappedBy="bidder")
     private Set<Bid> bidSet;
-    //TODO connection Address - User
+    //connection Address - User
     @OneToMany(mappedBy="user")
     private Set<Address> addressSet;
 
@@ -38,7 +46,6 @@ public class User {
     @OneToMany(mappedBy = "owner")
     private Set<CreditCard> creditCardSet;
 
-
     protected User(){}
 
     public User(String nameUser, String firstName, String lastName) {
@@ -47,6 +54,16 @@ public class User {
         this.lastName = lastName;
     }
 
+    public User(String nameUser, String firstName, String lastName, UserType userType) {
+        this.nameUser = nameUser;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userType = userType;
+    }
+
+    public Long getIdUser() {
+        return idUser;
+    }
 
     public String getNameUser() {
         return nameUser;
@@ -110,5 +127,10 @@ public class User {
 
     public void setCreditCardSet(Set<CreditCard> creditCardSet) {
         this.creditCardSet = creditCardSet;
+    }
+
+    @Override
+    public String toString() {
+        return "User name: " + nameUser + " First name: " + firstName + " Last name: " + lastName;
     }
 }

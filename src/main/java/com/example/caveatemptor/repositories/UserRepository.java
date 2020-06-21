@@ -4,5 +4,6 @@ import com.example.caveatemptor.models.User;
 import org.springframework.data.repository.CrudRepository;
 
 public interface UserRepository extends CrudRepository<User,Long> {
-
+    User findBynameUser(String userName);
+    User findByidUser(long idUser);
 }

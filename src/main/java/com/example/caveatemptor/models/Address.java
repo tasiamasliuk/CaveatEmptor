@@ -30,6 +30,14 @@ public class Address {
         this.addressType = addressType;
     }
 
+    public Address(String street, String zipcode, String city, AddressType addressType, User user) {
+        this.street = street;
+        this.zipcode = zipcode;
+        this.city = city;
+        this.addressType = addressType;
+        this.user = user;
+    }
+
     public String getStreet() {
         return street;
     }

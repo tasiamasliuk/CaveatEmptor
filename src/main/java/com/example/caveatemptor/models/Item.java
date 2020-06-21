@@ -13,15 +13,15 @@ public class Item implements Serializable {
     @JoinColumn(name = "idCategory", nullable = false)
     private Category category;
 
-    //TODO connection Image-Item
+    //connection Image-Item
     @OneToMany(mappedBy="item")
     private Set<Image> imageSet;
 
-    //TODO connection Bid-Item
+    //connection Bid-Item
     @OneToMany(mappedBy="item")
     private Set<Bid> bidSet;
 
-    //TODO connection User-Item
+    //connection User-Item
     @ManyToOne
     @JoinColumn(name="idSeller", nullable = false)
     private User seller;
@@ -37,6 +37,14 @@ public class Item implements Serializable {
 
     public Item(String name, BigDecimal initialPrice, Date auctionEnd) {
         this.nameItem = name;
+        this.initialPrice = initialPrice;
+        this.auctionEnd = auctionEnd;
+    }
+
+    public Item(String nameItem, BigDecimal initialPrice, Date auctionEnd, Category category, User seller) {
+        this.category = category;
+        this.seller = seller;
+        this.nameItem = nameItem;
         this.initialPrice = initialPrice;
         this.auctionEnd = auctionEnd;
     }
@@ -63,5 +71,10 @@ public class Item implements Serializable {
 
     public void setAuctionEnd(Date auctionEnd) {
         this.auctionEnd = auctionEnd;
+    }
+
+    @Override
+    public String toString() {
+        return "Item name: " + nameItem + " Initial price: " + initialPrice + " Auction Ends: " + auctionEnd + " category: " + category.getNameCategory() + "\n";
     }
 }

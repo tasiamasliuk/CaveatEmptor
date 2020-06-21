@@ -4,11 +4,15 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
+/*
+@NamedQuery(name = "findByNameCategory",
+            query = "select c from category where name_category = ?1")*/
+
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idCategory;
-    private String name;
+    private String nameCategory;
 
     //connection between table Item - Category
     @OneToMany(mappedBy = "category")
@@ -22,14 +26,14 @@ public class Category {
     protected Category(){}
 
     public Category(String name) {
-        this.name = name;
+        this.nameCategory = name;
     }
 
-    public String getName() {
-        return name;
+    public String getNameCategory() {
+        return nameCategory;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameCategory(String nameCategory) {
+        this.nameCategory = nameCategory;
     }
 }

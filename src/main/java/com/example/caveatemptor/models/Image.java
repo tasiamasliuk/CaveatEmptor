@@ -10,7 +10,7 @@ public class Image {
     private String title;
     private String filename;
 
-    //TODO connection Image-Item
+    //connection Image-Item
     @ManyToOne
     @JoinColumn(name = "idItem", nullable = false)
     private Item item;
