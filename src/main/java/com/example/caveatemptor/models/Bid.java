@@ -29,6 +29,13 @@ public class Bid {
         this.createdOn = createdOn;
     }
 
+    public Bid(BigDecimal amount, Date createdOn, Item item, User bidder) {
+        this.amount = amount;
+        this.createdOn = createdOn;
+        this.item = item;
+        this.bidder = bidder;
+    }
+
     public BigDecimal getAmount() {
         return amount;
     }

@@ -19,7 +19,8 @@ public class CreditCard extends BillingDetails{
 
     protected CreditCard(){}
 
-    public CreditCard(String number, String expMonth, String expYear) {
+    public CreditCard(String number, String expMonth, String expYear, User user) {
+        this.owner = user;
         this.number = number;
         this.expMonth = expMonth;
         this.expYear = expYear;
@@ -50,4 +51,6 @@ public class CreditCard extends BillingDetails{
     public void setExpYear(String expYear) {
         this.expYear = expYear;
     }
+
+
 }

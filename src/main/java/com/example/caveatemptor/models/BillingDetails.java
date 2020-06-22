@@ -18,7 +18,7 @@ public abstract class BillingDetails implements Serializable {
 
     @ManyToOne
     @JoinColumn(name="idUser", nullable = false)
-    private User owner;
+    protected User owner;
 
     public User getOwner() {
         return owner;

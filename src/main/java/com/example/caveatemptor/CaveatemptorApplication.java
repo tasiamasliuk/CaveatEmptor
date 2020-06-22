@@ -20,17 +20,19 @@ import static com.example.caveatemptor.models.User.UserType.SELLER;
 @SpringBootApplication
 public class CaveatemptorApplication {
 
-	private static final Logger log = LoggerFactory.getLogger(CaveatemptorApplication.class);
+	//private static final Logger log = LoggerFactory.getLogger(CaveatemptorApplication.class);
 
 	public static void main(String[] args) {
 		SpringApplication.run(CaveatemptorApplication.class, args);
 	}
+
+	/*
 	@Bean
 	public CommandLineRunner demo(CategoryRepository categoryRepository, ItemRepository itemRepository, UserRepository userRepository, CreditCardRepository creditCardRepository, BankAccountRepository bankAccountRepository, AddressRepository addressRepository) {
 		return (args) -> {
 			//add same users
 			//userRepository.save(new User("Tasia", "Tetiana", "Masliuk", SELLER));
-
+            /*
 			log.info("Find by ID: ");
 			User userId = userRepository.findByidUser(1L);
 			log.info(userId.toString());
@@ -41,15 +43,16 @@ public class CaveatemptorApplication {
 				log.info(user.toString());
 			}
 
-
 			log.info("Find by UserName: ");
 			User user = userRepository.findBynameUser("Tasia");
 			log.info(user.toString());
 
-			//creditCardRepository.save(new CreditCard("5690 9631 2305 8462","02","2026"));
-			//creditCardRepository.save(new CreditCard("3002 8631 0212 6301","06","2023"));
 
-			//bankAccountRepository.save(new BankAccount("BE68 6351 2648 3254","WBK", "BOFMIE23"));
+			creditCardRepository.save(new CreditCard("5690 9631 2305 8462","02","2026", user));
+			creditCardRepository.save(new CreditCard("3002 8631 0212 6301","06","2023", user));
+
+			bankAccountRepository.save(new BankAccount("BE68 6351 2648 3254","WBK", "BOFMIE23", user));
+
 
 			addressRepository.save(new Address("Storking LN","YO41 5ND", "Wilberfoss", home, user));
 			addressRepository.save(new Address("Main St","YO36 5ND", "Wilberfoss", billing, user));
@@ -82,7 +85,8 @@ public class CaveatemptorApplication {
 				log.info(item.toString());
 			}
 			log.info("");
+
 		};
-	}
+	}*/
 
 }

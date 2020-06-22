@@ -19,10 +19,11 @@ public class BankAccount extends BillingDetails{
 
     protected BankAccount(){}
 
-    public BankAccount(String account, String bankName, String swift) {
+    public BankAccount(String account, String bankName, String swift, User user) {
         this.account = account;
         this.bankName = bankName;
         this.swift = swift;
+        this.owner = user;
     }
 
     public String getAccount() {
